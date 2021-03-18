@@ -20,6 +20,7 @@ import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.componen
 import {RouterModule} from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { OrdersComponent } from './orders/orders.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     MyOrdersComponent,
     AdminProductsComponent,
     AdminOrdersComponent,
-    LoginComponent
+    LoginComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,
@@ -45,6 +47,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     RouterModule.forRoot([
       { path: '', component: HomeComponent},
       { path: 'products', component: ProductsComponent},
+      { path: 'orders', component: OrdersComponent},
       { path: 'shopping-cart', component: ShoppingCartComponent},
       { path: 'check-out', component: CheckOutComponent},
       { path: 'login', component: LoginComponent},
