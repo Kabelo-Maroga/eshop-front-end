@@ -21,6 +21,7 @@ import {RouterModule} from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { OrdersComponent } from './orders/orders.component';
+import {AuthenticationService} from './services/authentication.service';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,9 @@ import { OrdersComponent } from './orders/orders.component';
       { path: 'admin/orders', component: AdminOrdersComponent}
     ])
   ],
-  providers: [],
+  providers: [
+    AuthenticationService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
