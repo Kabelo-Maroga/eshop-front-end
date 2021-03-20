@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {AngularFireAuth} from '@angular/fire/auth';
 import firebase from 'firebase';
-import {AuthenticationService} from '../services/authentication.service';
+import {AuthService} from '../services/auth.service';
 
 
 @Component({
@@ -11,7 +11,7 @@ import {AuthenticationService} from '../services/authentication.service';
 })
 export class LoginComponent {
 
-  constructor(private auth: AuthenticationService) { }
+  constructor(private auth: AuthService) { }
 
   login(): void{
     this.auth.login();

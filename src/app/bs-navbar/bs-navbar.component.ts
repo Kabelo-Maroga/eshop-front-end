@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AngularFireAuth} from '@angular/fire/auth';
 import firebase from 'firebase';
 import {Observable} from 'rxjs';
-import {AuthenticationService} from '../services/authentication.service';
+import {AuthService} from '../services/auth.service';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -14,7 +14,7 @@ export class BsNavbarComponent {
 
   user$: Observable<firebase.User>;
 
-  constructor(public auth: AuthenticationService) {
+  constructor(public auth: AuthService) {
   }
 
   logout(): void {
