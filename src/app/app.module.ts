@@ -26,6 +26,7 @@ import {AuthGuardService} from './services/auth-guard.service';
 import {UserService} from './services/user.service';
 import { NoAccessComponent } from './no-access/no-access.component';
 import { ProductFormComponent } from './admin/product-form/product-form.component';
+import {CategoryService} from './services/category.service';
 
 @NgModule({
   declarations: [
@@ -94,13 +95,14 @@ import { ProductFormComponent } from './admin/product-form/product-form.componen
         path: 'admin/orders',
         component: AdminOrdersComponent,
         canActivate: [AuthGuardService]
-      }
+      },
     ])
   ],
   providers: [
     AuthService,
     UserService,
-    AuthGuardService
+    AuthGuardService,
+    CategoryService
   ],
   bootstrap: [AppComponent]
 })
