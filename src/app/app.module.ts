@@ -23,6 +23,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { OrdersComponent } from './orders/orders.component';
 import {AuthService} from './services/auth.service';
 import {AuthGuardService} from './services/auth-guard.service';
+import {UserService} from './services/user.service';
+import { NoAccessComponent } from './no-access/no-access.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import {AuthGuardService} from './services/auth-guard.service';
     AdminProductsComponent,
     AdminOrdersComponent,
     LoginComponent,
-    OrdersComponent
+    OrdersComponent,
+    NoAccessComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,10 +50,24 @@ import {AuthGuardService} from './services/auth-guard.service';
     AngularFireAuthModule,
     NgbModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent},
-      { path: 'login', component: LoginComponent},
-      { path: 'products', component: ProductsComponent},
-      { path: 'orders', component: OrdersComponent},
+      {
+        path: '',
+        component: HomeComponent
+      },
+      {
+        path: 'login',
+        component: LoginComponent
+      },
+      {
+        path: 'products',
+        component: ProductsComponent},
+      {
+        path: 'orders',
+        component: OrdersComponent},
+      {
+        path: 'no-access',
+        component: NoAccessComponent,
+      },
       {
         path: 'shopping-cart',
         component: ShoppingCartComponent,
@@ -74,7 +91,9 @@ import {AuthGuardService} from './services/auth-guard.service';
     ])
   ],
   providers: [
-    AuthService
+    AuthService,
+    UserService,
+    AuthGuardService
   ],
   bootstrap: [AppComponent]
 })
