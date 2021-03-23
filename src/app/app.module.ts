@@ -27,6 +27,8 @@ import {UserService} from './services/user.service';
 import { NoAccessComponent } from './no-access/no-access.component';
 import { ProductFormComponent } from './admin/product-form/product-form.component';
 import {CategoryService} from './services/category.service';
+import {FormsModule} from '@angular/forms';
+import {ProductService} from './services/product.service';
 
 @NgModule({
   declarations: [
@@ -63,10 +65,12 @@ import {CategoryService} from './services/category.service';
       },
       {
         path: 'products',
-        component: ProductsComponent},
+        component: ProductsComponent
+      },
       {
         path: 'orders',
-        component: OrdersComponent},
+        component: OrdersComponent
+      },
       {
         path: 'no-access',
         component: NoAccessComponent,
@@ -96,13 +100,15 @@ import {CategoryService} from './services/category.service';
         component: AdminOrdersComponent,
         canActivate: [AuthGuardService]
       },
-    ])
+    ]),
+    FormsModule
   ],
   providers: [
     AuthService,
     UserService,
     AuthGuardService,
-    CategoryService
+    CategoryService,
+    ProductService
   ],
   bootstrap: [AppComponent]
 })
