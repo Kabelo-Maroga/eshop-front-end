@@ -25,6 +25,7 @@ import {AuthService} from './services/auth.service';
 import {AuthGuardService} from './services/auth-guard.service';
 import {UserService} from './services/user.service';
 import { NoAccessComponent } from './no-access/no-access.component';
+import { ProductFormComponent } from './admin/product-form/product-form.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { NoAccessComponent } from './no-access/no-access.component';
     LoginComponent,
     OrdersComponent,
     NoAccessComponent,
+    ProductFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -76,6 +78,11 @@ import { NoAccessComponent } from './no-access/no-access.component';
       {
         path: 'check-out',
         component: CheckOutComponent,
+        canActivate: [AuthGuardService]
+      },
+      {
+        path: 'admin/products/new',
+        component: ProductFormComponent,
         canActivate: [AuthGuardService]
       },
       {
