@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Observable} from 'rxjs';
-import {ProductService} from '../../services/product.service';
+import { Observable } from 'rxjs';
+import { Product } from 'src/app/models/product';
+import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-admin-products',
@@ -9,9 +10,12 @@ import {ProductService} from '../../services/product.service';
 })
 export class AdminProductsComponent {
 
-  products: Observable<any[]>;
+  products: Observable<Product[]>;
+
+  productSnapshots;
 
   constructor(private productService: ProductService) {
     this.products = productService.getAll();
   }
+
 }
