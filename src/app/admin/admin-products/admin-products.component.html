@@ -12,10 +12,10 @@
   </thead>
 
   <tbody>
-    <tr *ngFor="let p of products | async; let k = index">
-      <td>{{p.title}}</td>
-      <td>{{p.price}}</td>
-      <td><a [routerLink]="['/admin/products/', k]">Edit</a></td>
+    <tr *ngFor="let p of products | async;">
+      <td>{{p.value.title}}</td>
+      <td>{{p.value.price}}</td>
+      <td><a [routerLink]="['/admin/products/', p.key]">Edit</a></td>
     </tr>
   </tbody>
 

@@ -13,15 +13,11 @@ export class ProductService {
     this.db.list('/products').push(product);
   }
 
-  getAll() : Observable<any[]> {
-    return this.db.list('/products').valueChanges();
+  getAll(){
+    return this.db.list('/products');
   }
 
-  getAllSnapshots() {
-    return this.db.list('/products').snapshotChanges();
-  }
-
-  getProduct(id: string) {
+  get(id: string) {
     return this.db.object('/products/' + id).valueChanges();
   }
 

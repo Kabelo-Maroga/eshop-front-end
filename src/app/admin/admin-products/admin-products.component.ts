@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Product } from 'src/app/models/product';
 import { ProductService } from '../../services/product.service';
 
@@ -10,12 +11,16 @@ import { ProductService } from '../../services/product.service';
 })
 export class AdminProductsComponent {
 
-  products: Observable<Product[]>;
-
-  productSnapshots;
+  products;
 
   constructor(private productService: ProductService) {
-    this.products = productService.getAll();
+    this.products = this.productService.getAll().snapshotChanges().pipe(
+      map(changes =>
+        changes.map(c =>
+          ({ key: c.payload.key, value: c.payload.val() })
+        )
+      )
+    );
   }
 
 }
