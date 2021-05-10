@@ -3,7 +3,6 @@ import { CategoryService } from '../../services/category.service';
 import { Observable } from 'rxjs';
 import { ProductService } from '../../services/product.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Product } from 'src/app/models/product';
 
 @Component({
   selector: 'app-product-form',

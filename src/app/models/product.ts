@@ -1,7 +1,6 @@
-export interface Product {
-    // key: string;
-    category: string;
-    imageUrl: string;
-    price: string;
-    title: string;
+import { IProductAttr } from "./product-attr";
+
+export interface IProduct {
+    key: string;
+    value: IProductAttr;
 }

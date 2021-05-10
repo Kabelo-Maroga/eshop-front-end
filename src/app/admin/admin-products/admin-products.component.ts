@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Product } from 'src/app/models/product';
+import { IProduct } from 'src/app/models/product';
 import { ProductService } from '../../services/product.service';
 
 @Component({
@@ -11,7 +11,7 @@ import { ProductService } from '../../services/product.service';
 })
 export class AdminProductsComponent implements OnInit, OnDestroy {
 
-  products: any[];
+  products: IProduct[];
 
   filteredProducts: any[];
 
