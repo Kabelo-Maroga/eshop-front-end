@@ -20,7 +20,8 @@ export class ShoppingCartService {
     })
   }
 
-  private getCart(cartId: string) {
+  async getCart() {
+    let cartId = await this.getOrCreateCartId();
     return this.db.object('/shopping-carts/' + cartId);
   }
 
@@ -28,7 +29,7 @@ export class ShoppingCartService {
     return this.db.object('/shopping-carts/' + cartId + '/items/' + productId);
   }
 
-  private async getOrCreateCartId() {
+  private async getOrCreateCartId(): Promise<string> {
     let cardId = localStorage.getItem('cardId');
     if (cardId) return cardId;
 
@@ -38,7 +39,14 @@ export class ShoppingCartService {
   }
 
   async addToCart(product: IProduct) {
+    this.updateItemQuantity(product, 1);
+  } 
 
+  async removeFromCart(product: IProduct) {
+    this.updateItemQuantity(product, -1);
+  }
+
+  private async updateItemQuantity(product: IProduct, change: number) {
     //need to refactor this here...
     let cartId = await this.getOrCreateCartId();
     let item$$ = this.getItem(cartId, product.key);
@@ -47,11 +55,10 @@ export class ShoppingCartService {
       this.data = item.payload.val();
 
       if (this.data != null) {
-        item$$.update({ product: product, quantity: (this.data.quantity) + 1 });
+        item$$.update({ product: product, quantity: (this.data.quantity) + change });
       } else {
         item$$.set({ product: product, quantity: 1 });
       }
     });
   }
-
 }

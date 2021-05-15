@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { IProduct } from '../models/product';
 import { ProductService } from '../services/product.service';
+import { ShoppingCartService } from '../services/shopping-cart.service';
 
 @Component({
   selector: 'app-products',
@@ -18,10 +19,14 @@ export class ProductsComponent {
 
   category: string;
 
+  cart: any;
+
   subscribtion: Subscription;
 
   constructor(private productService: ProductService,
-              private route: ActivatedRoute) {
+    private route: ActivatedRoute,
+    private shoppingCartService: ShoppingCartService) {
+
     this.subscribtion = this.productService.getAll().snapshotChanges().pipe(
       map(changes =>
         changes.map(c =>
@@ -42,7 +47,11 @@ export class ProductsComponent {
     });
   }
 
-  ngOnInit(): void {
+  async ngOnInit() {
+    this.subscribtion = (await this.shoppingCartService.getCart()).snapshotChanges()
+      .subscribe(cart => {
+        this.cart = cart.payload.val();
+      });
   }
 
   ngOnDestroy(): void {

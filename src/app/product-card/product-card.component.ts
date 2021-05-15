@@ -10,12 +10,22 @@ import { ShoppingCartService } from '../services/shopping-cart.service';
 export class ProductCardComponent {
 
   @Input("product") product;
+  @Input("shopping-cart") shoppingCart;
 
   constructor(private shoppingCartService : ShoppingCartService) { }
 
-  addToCart(product: IProduct) {
-    // console.log(product);
-    this.shoppingCartService.addToCart(product);
+  addToCart() {
+    this.shoppingCartService.addToCart(this.product);
   }
 
+  removeFromCart() {
+    this.shoppingCartService.removeFromCart(this.product);
+  }
+
+  getQuantity(){
+    if(!this.shoppingCart) return 0;
+
+    let item = this.shoppingCart.items[this.product.key];
+    return item ? item.quantity : 0;
+  }
 }
