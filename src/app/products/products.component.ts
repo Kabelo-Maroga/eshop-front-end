@@ -40,7 +40,6 @@ export class ProductsComponent {
           this.products;
       })
     });
-
   }
 
   ngOnInit(): void {
