@@ -15,7 +15,7 @@ export class ProductsComponent {
 
   products: IProduct[] = [];
 
-  filteredProducts: any[];
+  filteredProducts?: any[];
 
   category: string;
 
