@@ -20,7 +20,7 @@ steps:
     npm install
     ng build --prod
   displayName: 'npm install and build'
-  workingDirectory: '$(Build.SourcesDirectory)/eshop-front-end'
+  workingDirectory: '$(Build.SourcesDirectory)/s/eshop-front-end'
 
 - task: PublishBuildArtifacts@1
   inputs:
