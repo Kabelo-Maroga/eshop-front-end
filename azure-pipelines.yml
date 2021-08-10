@@ -19,8 +19,8 @@ steps:
     npm install -g @angular/cli
     npm install
     ng build --prod
-    displayName: 'npm install and build'
-    workingDirectory: '$(Build.SourcesDirectory)/eshop-front-end'
+  displayName: 'npm install and build'
+  workingDirectory: '$(Build.SourcesDirectory)/eshop-front-end'
 
 - task: PublishBuildArtifacts@1
   inputs:
