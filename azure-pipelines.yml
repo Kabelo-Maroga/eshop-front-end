@@ -17,14 +17,27 @@ steps:
 
 - script: |
     npm install -g @angular/cli
-    npm install
-    ng build --prod
-  displayName: 'npm install and build'
-
+  # npm install
+  #   ng build --prod
+  # displayName: 'npm install and build'
+- task: Npm@1
+  inputs:
+    command: 'install'
+    workingDir: 'eshop-front-end'
+- task: Npm@1
+  inputs:
+    command: 'custom'
+    workingDir: 'eshop-front-end'
+    customCommand: 'run build-prod'
 - task: ArchiveFiles@2
   inputs:
-    rootFolderOrFile: '$(Build.BinariesDirectory)'
-    includeRootFolder: true
+    rootFolderOrFile: 'eshop-front-end/dist/shop'
+    includeRootFolder: false
     archiveType: 'zip'
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     replaceExistingArchive: true
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
