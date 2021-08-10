@@ -17,28 +17,35 @@ steps:
 
 - script: |
     npm install -g @angular/cli
-  # npm install
-  #   ng build --prod
-  # displayName: 'npm install and build'
-- task: Npm@1
-  inputs:
-    command: 'install'
-    workingDir: 'eshop-front-end'
-- task: Npm@1
-  inputs:
-    command: 'custom'
-    workingDir: 'eshop-front-end'
-    customCommand: 'run build-prod'
-- task: ArchiveFiles@2
-  inputs:
-    rootFolderOrFile: '$(Build.ArtifactStagingDirectory)/s/dist/shop'
-    includeRootFolder: false
-    archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
-    replaceExistingArchive: true
+    npm install
+    ng build --prod
+    displayName: 'npm install and build'
+    workingDirectory: '$(Build.SourcesDirectory)/eshop-front-end'
+
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
+    artifactName: dist
+    pathtoPublish: 'dist'
+
+# - task: Npm@1
+#   inputs:
+#     command: 'install'
+#     workingDir: 'eshop-front-end'
+# - task: Npm@1
+#   inputs:
+#     command: 'custom'
+#     workingDir: 'eshop-front-end'
+#     customCommand: 'run build-prod'
+# - task: ArchiveFiles@2
+#   inputs:
+#     rootFolderOrFile: '$(Build.ArtifactStagingDirectory)/s/dist/shop'
+#     includeRootFolder: false
+#     archiveType: 'zip'
+#     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+#     replaceExistingArchive: true
+# - task: PublishBuildArtifacts@1
+#   inputs:
+#     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+#     ArtifactName: 'drop'
+#     publishLocation: 'Container'
     
