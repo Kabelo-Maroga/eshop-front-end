@@ -35,6 +35,6 @@ steps:
   inputs:
     azureSubscription: 'Azure-SPN-Connection'
     appType: 'webAppLinux'
-    appName: 'tech-junkies'
+    appName: 'fruits-veg'
     package: '$(System.DefaultWorkingDirectory)/**/*.zip'
     runtimeStack: 'NODE|12-lts'
