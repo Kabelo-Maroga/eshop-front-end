@@ -24,7 +24,7 @@ steps:
 - task: CopyFiles@2
   inputs:
     Contents: 'dist/**' # Pull the build directory (React)
-    TargetFolder: '$(dist.ArtifactStagingDirectory)/dest.zip'
+    TargetFolder: '$(dist.ArtifactStagingDirectory)/dist.zip'
    
 - task: PublishBuildArtifacts@1
   inputs: 
