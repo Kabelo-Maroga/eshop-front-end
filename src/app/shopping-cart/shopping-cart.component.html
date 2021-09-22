@@ -1,1 +1,40 @@
-<p>shopping-cart works!</p>
+<p>Cart</p>
+
+<section>
+  <div class="spacer">
+    <div class="container">
+      <div class="row mt-5">
+        <div class="col-lg-9">
+          <div class="row shop-listing">
+            <table class="table shop-table">
+              <tr>
+                <th class="b-0">Name</th>
+                <th class="b-0">Price</th>
+                <th class="b-0">Quantity</th>
+                <th class="b-0 text-right">Total Price</th>
+              </tr>
+              <tr>
+                <td>{{ "test name" }}</td>
+                <td>{{ "test id" }}</td>
+                <td>
+                  <button class="btn btn-primary btn-sm">+</button>
+                  {{ "1" }}
+                  <button class="btn btn-primary btn-sm">-</button>
+                </td>
+                <td class="text-right">
+                  <h5 class="font-medium m-b-30">{{ "20" }}</h5>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="3" align="right">Subtotal :{{ "450" }}</td>
+                <td colspan="4" align="right">
+                  <button class="btn btn-danger">Empty Cart</button>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

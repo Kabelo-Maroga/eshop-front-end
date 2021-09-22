@@ -12,4 +12,5 @@ export class ShoppingCartComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  _increamentQTY(a: any, b: any){}
 }
