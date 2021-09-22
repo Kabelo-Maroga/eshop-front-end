@@ -1,8 +1,15 @@
 <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
   <div class="container-fluid">
     <a class="navbar-brand" routerLink="/">e-shop</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExampleDefault"
-      aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarsExampleDefault"
+      aria-controls="navbarsExampleDefault"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -10,14 +17,13 @@
       <ul class="navbar-nav me-auto mb-2 mb-md-0">
         <li class="nav-item">
           <a class="nav-link bi bi-cart" routerLink="/shopping-cart">
-
             <!-- <span class="material-icons">
               shopping_cart
             </span> -->
 
             <!-- Shopping cart -->
             <span class="badge badge-warning badge-pill">
-              {{shoppingCartItemCount}}
+              {{ shoppingCartItemCount }}
             </span>
           </a>
         </li>
@@ -28,17 +34,42 @@
           </li>
         </ng-template>
 
-        <li ngbDropdown *ngIf="auth.user$ | async as user; else quest" class="nav-item dropdown">
-          <a ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" data-bs-toggle="dropdown"
-            aria-expanded="false">{{user.displayName}}</a>
-          <ul ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
+        <li
+          ngbDropdown
+          *ngIf="auth.user$ | async as user; else quest"
+          class="nav-item dropdown"
+        >
+          <a
+            ngbDropdownToggle
+            class="nav-link dropdown-toggle"
+            id="dropdown01"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            >{{ user.displayName }}</a
+          >
+          <ul
+            ngbDropdownMenu
+            class="dropdown-menu"
+            aria-labelledby="dropdown01"
+          >
             <li><a class="dropdown-item" routerLink="/orders">My orders</a></li>
-            <li><a class="dropdown-item" routerLink="/admin/orders">Manage orders</a></li>
-            <li><a class="dropdown-item" routerLink="/admin/products">Manage products</a></li>
+            <li>
+              <a class="dropdown-item" routerLink="/admin/orders"
+                >Manage orders</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/admin/products"
+                >Manage products</a
+              >
+            </li>
             <li><a class="dropdown-item" (click)="logout()">Logout</a></li>
           </ul>
         </li>
       </ul>
+    </div>
+    <div>
+      <a routerLink="/payment">pay</a>
     </div>
   </div>
 </nav>

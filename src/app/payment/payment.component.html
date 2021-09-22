@@ -1,0 +1,16 @@
+<div *ngIf="showSuccess" class="alert alert-success alert-dismissible">
+  <a routerLink="/" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  Transaction successful.
+</div>
+<div *ngIf="showError" class="alert alert-danger alert-dismissible">
+  <a routerLink="/" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  Transaction failed.
+</div>
+<div *ngIf="showCancel" class="alert alert-info alert-dismissible">
+  <a routerLink="/" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  Transaction canceled.
+</div>
+
+<div style="float: right">
+  <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+</div>

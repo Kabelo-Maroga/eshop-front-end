@@ -32,6 +32,8 @@ import {ProductService} from './services/product.service';
 import {CustomFormsModule} from 'ng2-validation';
 import { FilterComponent } from './products/filter/filter.component';
 import { ProductCardComponent } from './product-card/product-card.component';
+import { PaymentComponent } from './payment/payment.component';
+import { NgxPayPalModule } from 'ngx-paypal';
 
 @NgModule({
   declarations: [
@@ -51,6 +53,7 @@ import { ProductCardComponent } from './product-card/product-card.component';
     ProductFormComponent,
     FilterComponent,
     ProductCardComponent,
+    PaymentComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,6 +63,7 @@ import { ProductCardComponent } from './product-card/product-card.component';
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     NgbModule,
+    NgxPayPalModule,
     RouterModule.forRoot([
       {
         path: '',
@@ -111,6 +115,11 @@ import { ProductCardComponent } from './product-card/product-card.component';
         component: AdminOrdersComponent,
         canActivate: [AuthGuardService]
       },
+      {
+        path: 'payment',
+        component: PaymentComponent,
+        canActivate: [AuthGuardService]
+      }
     ]),
     FormsModule
   ],
